@@ -32,6 +32,11 @@ ElggPluginModule.prototype.askFor = function askFor() {
 			message: 'What is the name of your plugin?'
 		},
 		{
+			name: 'pluginNamespace',
+			message: "What project namespace should be used?",
+			default: 'hypeJunction'
+		},
+		{
 			name: 'pluginDescription',
 			message: 'Describe what your plugin does?'
 		},
@@ -56,11 +61,6 @@ ElggPluginModule.prototype.askFor = function askFor() {
 			default: 'http://hypejunction.com/'
 		},
 		{
-			name: 'githubUsername',
-			message: "What is the author's Github username?",
-			default: 'hypeJunction'
-		},
-		{
 			name: 'requireElgg',
 			message: 'What is the minimum required Elgg version?'
 		}
@@ -76,8 +76,8 @@ ElggPluginModule.prototype.askFor = function askFor() {
 		this.userOpts.pluginDescription = props.pluginDescription;
 		this.userOpts.pluginAuthor = props.pluginAuthor;
 		this.userOpts.pluginAuthorEmail = props.pluginAuthorEmail;
-		this.userOpts.githubUsername = props.githubUsername;
-		this.userOpts.composerNamespace = props.githubUsername.toLowerCase();
+		this.userOpts.pluginNamespace = props.pluginNamespace;
+		this.userOpts.composerNamespace = props.pluginNamespace.toLowerCase();
 		var categories = props.categories.split(',');
 		this.userOpts.categories = categories.map(function (s) {
 			return {
@@ -102,7 +102,9 @@ ElggPluginModule.prototype.plugin = function plugin() {
 
 	mkdirp(this.destinationPath('actions'));
 	mkdirp(this.destinationPath('classes'));
+	mkdirp(this.destinationPath('classes/' + this.userOpts.pluginNamespace));
 	mkdirp(this.destinationPath('languages'));
+	mkdirp(this.destinationPath('lib'));
 	this.fs.copyTpl(this.templatePath('languages/en.php'), this.destinationPath('languages/en.php'), tplData);
 	mkdirp(this.destinationPath('screenshots'));
 	mkdirp(this.destinationPath('sass'));

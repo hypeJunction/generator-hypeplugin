@@ -4,8 +4,8 @@
 	"license": "GPL-2.0",
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:<%= userOpts.githubUsername %>/<%= userOpts.pluginId %>.git",
-		"owner": "<%= userOpts.githubUsername %>",
+		"url": "git@github.com:<%= userOpts.pluginNamespace %>/<%= userOpts.pluginId %>.git",
+		"owner": "<%= userOpts.pluginNamespace %>",
 		"repo": "<%= userOpts.pluginId %>"
 	},
 	"devDependencies": {
