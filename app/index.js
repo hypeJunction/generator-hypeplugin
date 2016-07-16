@@ -12,9 +12,6 @@ util.inherits(ElggPluginModule, yeoman.generators.Base);
 ElggPluginModule.prototype.askFor = function askFor() {
 	var cb = this.async();
 
-	// have Yeoman greet the user.
-	console.log(this.yeoman);
-
 	console.log('--------------------------------');
 	console.log('----------HYPEJUNCTION----------');
 	console.log('--------------------------------')
@@ -109,8 +106,8 @@ ElggPluginModule.prototype.plugin = function plugin() {
 	mkdirp(this.destinationPath('screenshots'));
 	mkdirp(this.destinationPath('sass'));
 	mkdirp(this.destinationPath('views/default'));
-	this.fs.copy(this.templatePath('.gitattributes'), this.destinationPath('.gitattributes'));
-	this.fs.copy(this.templatePath('.gitignore'), this.destinationPath('.gitignore'));
+	this.fs.copy(this.templatePath('gitattributes'), this.destinationPath('.gitattributes'));
+	this.fs.copy(this.templatePath('gitignore'), this.destinationPath('.gitignore'));
 	this.fs.copy(this.templatePath('CHANGELOG.md'), this.destinationPath('CHANGELOG.md'));
 	this.fs.copy(this.templatePath('Gruntfile.js'), this.destinationPath('Gruntfile.js'));
 	this.fs.copyTpl(this.templatePath('README.md'), this.destinationPath('README.md'), tplData);
