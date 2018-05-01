@@ -20,7 +20,7 @@
     "url": "git://github.com/hypeJunction/generator-hypeplugin.git"
   },
   "dependencies": {
-    "yeoman-generator": "^0.20.3"
+    "yeoman-generator": "^2.0.5"
   },
   "license": "MIT"
 }
